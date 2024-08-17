@@ -1,33 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import ProductsProvider from './context/productsProvider'
+import ProductList from './components/ProductList'
+import Cart from './components/Cart'
+import ModalConfirmOrder from './components/ModalConfirmOrder'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='px-6 py-6 xl:p-16 2xl:px-48'>
+        <h1 className='font-bold text-4xl mb-6'>Desserts</h1>
+        <ProductsProvider>
+          <div className='grid xl:grid-cols-4'>
+            <ProductList />
+            <div className="p-6 bg-white rounded-md xl:col-span-1 xl:fixed xl:right-48 xl:w-[420px]">
+              <Cart />
+              <ModalConfirmOrder />
+            </div>
+          </div>
+        </ProductsProvider>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
