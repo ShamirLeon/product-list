@@ -1,5 +1,7 @@
+import { SVGProps } from "react"
+import { JSX } from "react/jsx-runtime"
 
-const CartIcon = (props) => (
+const CartIcon = (props: JSX.IntrinsicAttributes & SVGProps<SVGSVGElement>) => (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width={21}
